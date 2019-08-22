@@ -1,0 +1,491 @@
+.header-area {
+	@include display-flex;
+	@include flex-direction(column-reverse);
+	@include breakpoint(tablet){
+		@include flex-direction(row);
+	}
+	.image-grid {
+		@include display-flex;
+		margin-top: auto;
+		@include breakpoint(tablet) { width: calc(100% / 3); }
+		@include breakpoint(ten) {
+			width: 40%;
+			margin-top: 90px;
+		}
+		.small-images {
+			width: 50%;
+			img {
+				width: 100%;
+				&:first-of-type { margin: -4px 0 4px; }
+				@include breakpoint(thirteen) { width: auto; }
+			}
+			@include breakpoint(tablet) { width: 100%; }
+			@include breakpoint(ten) {
+				width: calc(50% - 1px);
+				img {
+					&:first-of-type { margin: 0 0 4px; }
+				}
+			}
+			@include breakpoint(thirteen) { width: 100%; }
+		}
+		.large-image {
+			margin: 0 0 0 0.3em;
+			width: 50%;
+			img {
+				width: 100%;
+				margin: -1px 0 0 0;
+				@include breakpoint(thirteen) { width: auto; }
+			}
+			@include breakpoint(tablet) { display: none; }
+			@include breakpoint(ten) {
+				display: block;
+				img { margin: 0; }
+			}
+		}
+	}
+	.featured-image {
+		position: relative;
+		height: 100vh;
+		background: url('http://staging.motif-landing.mtclinux.com/wp-content/uploads/2019/08/featured-image.png') no-repeat center transparent;
+		background-size: cover;
+		@include breakpoint(tablet) {
+			width: calc((100% / 3)*2);
+			height: auto;
+			margin: 0 0 0 4px;
+		}
+		@include breakpoint(ten) {
+			margin: 0 0 0 2px;
+			width: 60%;
+		}
+		@include breakpoint(thirteen) { background: none; }
+		img.featured {
+			display: none;
+			@include breakpoint(thirteen) { display: block; }
+		}
+		// .logo {
+		.icon-motif-logo {
+			position: absolute;
+			right: 0;
+			left: 0;
+			margin: -85px auto;
+			top: 50%;
+			text-align: center;
+			@include font-size(17);
+			color: $white;
+		}
+
+		.tagline-container {
+			position: absolute;
+			bottom: 66px;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: $bold;
+			letter-spacing: 2px;
+			margin: 0 auto;
+			right: 0;
+			left: 0;
+			padding: 0 20px;
+			@include breakpoint(tablet) {
+				bottom: 20px;
+			}
+			.tagline { color: $khaki; }
+			.mobile-leasing {
+				color: $peach;
+				margin: 20px 0 0;
+				@include breakpoint(ten) { display: none; }
+			}
+		}
+	}
+}
+
+.content-area {
+	padding: 67px 27px 87px;
+	@include breakpoint(tablet) { padding: 67px 75px 87px; }
+	@include breakpoint(ten) { padding: 106px 0 97px; }
+	.headline {
+		margin: 0 0 42px;
+		color: $navy;
+		font-family: $header;
+		@include font-size(3);
+		@include breakpoint(ten) {
+			width: 50%;	
+			@include font-size(4);
+			margin: 0 30% 83px 20%;
+		}
+		@include breakpoint(thirteen) {
+			width: 40%;
+			margin: 0 40% 83px 20%;
+		}
+	}
+	.copy {
+		color: $navy;
+		@include font-size(1.7);
+		@include breakpoint(ten) {
+			width: 50%;
+			margin: 0 10% 0 40%;
+			@include font-size(1.6);
+		}
+		@include breakpoint(thirteen) {
+			width: 40%;
+			margin: 0 20% 0 40%;
+		}
+		.arrival-date {
+			margin: 45px 0 0;
+			@include display-flex;
+			color: $khaki;
+			text-transform: uppercase;
+			.time {
+				margin: 0 27px 0 0;
+				font-weight: $bold;
+				letter-spacing: 2px;
+			}
+			.locale {
+				letter-spacing: 2px;
+			}
+		}
+	}
+}
+
+.image-row {
+	@include breakpoint(ten) { @include display-flex; }
+	.lrg-img-container {
+		@include breakpoint(ten) { width: 40%;
+			margin: 0 2px 0 0;
+		}
+		img {	width: 100%; }
+	}
+	.sm-images-container {
+		@include breakpoint(ten) { width: 60%;
+			margin-left: auto; 
+		}
+		@include display-flex;
+		.img-wrap {
+			width: calc(50% - 2px);
+			// img {
+			// 	width: calc(100% - 4px);
+			// 	&:first-of-type { margin: 4px 2px 0 0; }
+			// 	&:nth-child(2) { margin: 4px 0 0 2px; }
+			// }
+			// @include breakpoint(tablet) {
+			// 	img {
+			// 		width: calc(100% -2px);
+			// 		&:first-of-type { margin: 4px 0 0 0; }
+			// 		&:nth-child(2) { margin: 4px 4px 0 4px; }
+			// 		&:nth-child(3) { margin: 4px 0 0 0; }
+			// 	}
+			// }
+			// @include breakpoint(ten) {
+			// 	img {
+			// 		width: calc((100% / 3) - 3px);
+			// 		&:first-of-type { margin: 0  0 0 4px; }
+			// 		&:nth-child(2) { margin: 0 0 0 3px; }
+			// 		&:nth-child(3) { margin: 0 0 0 4px; }
+			// 	}
+			// }
+			img { width: 100%; }
+			&:first-of-type { margin: 4px 2px 0 0; }
+			&:nth-child(2) { margin: 4px 0 0 2px; }
+			&:nth-child(3){ display: none; }
+			@include breakpoint(tablet) {
+				&:first-of-type { margin: 4px 0 0 0; }
+				&:nth-child(2) { margin: 4px 4px 0 4px; }
+				&:nth-child(3) { display: block; margin: 4px 0 0 0; }
+			}
+			@include breakpoint(ten) {
+				&:first-of-type { margin: 0  0 0 2px; }
+				&:nth-child(2) { margin: 0 0 0 3px; }
+				&:nth-child(3) { margin: 0 0 0 4px; }
+			}
+		}
+	}
+}
+
+
+.image-and-content-area {
+	margin: 0 auto;
+	.content-row {
+		margin: 3px 0 0;
+		@include breakpoint(ten) { @include display-flex; }
+		.content-wrapper {
+			@include box-sizing(border-box);
+			padding: 70px 27px;
+			@include breakpoint(tablet) { padding: 70px 75px; }
+			@include breakpoint(ten) { width: calc(40% - 1px); }
+			@include breakpoint(thirteen) { padding: 100px 138px; }
+			h3.headline {
+				font-family: $header;
+				color: $khaki;
+				@include font-size(3.4);
+			}
+		}
+		.image-container {
+			@include breakpoint(ten) { width: 60%; }
+			margin: 0 0 0 auto;
+			img {
+				width: 100%;
+				@include breakpoint(ten) {
+			 		width: calc(100% - 3px);
+					padding-left: 3px;
+				} 
+			}
+		}
+	}
+}
+
+.list-area {
+	background: $evergreen;
+	position: relative;
+	@include breakpoint(ten) { @include display-flex; }
+	.green-bg, .black-bg {
+		display: none;
+		@include breakpoint(ten) {
+			display: block;
+			position: absolute;
+			top: 0;
+	  	height: 100%;
+			width: 50%;
+		}
+	}
+
+	@include breakpoint(ten) {
+		.green-bg {
+			background: $evergreen;
+			left: 0;
+		}
+		.black-bg {
+			background: $black;
+			right: 0;
+		}
+	}
+
+	.list-container {
+		width: 100%;
+		position: relative;
+		padding: 70px 0 120px 27px;
+		@include box-sizing(border-box);
+		background: url('../images/features-bg.png') right bottom no-repeat transparent;
+		background-size: contain;
+		@include breakpoint(tablet) {
+			padding: 70px 75px 120px;
+			background: url('../images/features-bg-1024.png') right bottom no-repeat transparent;
+		}
+		@include breakpoint(ten) {
+			padding: 0;
+			background: none;
+			@include display-flex;
+		}
+		@include breakpoint(thirteen) {
+			padding: 0 12px;
+			background-image: url('../images/border.png');
+			background-repeat: repeat-y;
+			background-position: center;
+		}
+		.title-wrapper {
+			font-family: $header;
+			@include box-sizing(border-box);
+			@include font-size(3.4);
+			color: $white;
+			@include breakpoint(ten) {
+				background: url('../images/features-bg.png') right bottom no-repeat transparent;
+				background-size: contain;
+				padding: 100px 150px 100px 75px;
+				width: calc(40% + 3px);
+			}
+			@include breakpoint(thirteen) { padding: 100px 138px; }
+		}
+		.lists-wrapper {
+			@include breakpoint(tablet) {
+				@include display-flex;
+				@include align-items(baseline);
+				@include justify-content(space-between);
+			}
+			@include breakpoint(ten) {
+				display: block;
+				@include box-sizing(border-box);
+				padding: 100px 138px;
+				width: calc(60% - 3px);
+				background: $black;
+			}
+			.single-list {
+				@include box-sizing(border-box);
+				padding: 0 0 45px 0;
+				max-width: 350px;
+				&:first-of-type {
+					padding: 45px 0;
+					@include breakpoint(tablet) { padding: 45px 30px 0 0; }
+					@include breakpoint(ten) { padding: 45px 0; }
+				}
+				&:last-of-type {
+					padding: 0;
+					@include breakpoint(tablet) { padding: 0 0 0 30px; }
+					@include breakpoint(ten) { padding: 0; }
+				}
+				@include breakpoint(ten) {
+					&:first-of-type { padding: 0 0 45px 0; }
+				}
+				.list-title {
+					padding: 4px 0 28px;
+					color: $khaki;
+					text-transform: uppercase;
+					font-weight: $bold;
+					border-top: 1px solid $khaki;
+				}
+				.list {
+					color: $white;
+					@include box-sizing(border-box);
+					padding: 0 27px 0 0;
+					@include breakpoint(tablet) { padding: 0; }
+					li {
+						@include font-size(1.7);
+						margin: 0 0 10px;
+						&:last-of-type { margin: 0; }
+					}
+				}
+			}
+		}
+	}
+}
+
+.contact-area {
+	@include breakpoint(ten) {
+		@include display-flex;
+		@include flex-wrap(wrap);
+	}
+	.border {
+		width: 100%;
+		height: 14px;
+		background: $beige;
+		@include breakpoint(ten) {
+			height: 18px;
+		}
+	}
+	.content-wrapper {
+		@include box-sizing(border-box);
+		color: $khaki;
+		padding: 62px 27px;
+		@include breakpoint(tablet) { padding: 62px 75px; }
+		@include breakpoint(ten) {
+			padding: 100px 75px;
+			width: 40%;
+		}
+		@include breakpoint(thirteen) { padding: 100px 138px; }
+		.headline {
+			font-family: $header;
+			@include font-size(3.4);
+			margin: 0 0 50px;
+			@include breakpoint(ten) { margin: 0 0 55px; }
+		}
+		.copy { @include font-size(1.7); }
+	}
+	.form-wrapper {
+		@include box-sizing(border-box);
+		padding: 0 27px 100px;
+		@include breakpoint(tablet) { padding: 0 75px 100px; }
+		@include breakpoint(ten) {
+			padding: 100px 90px;
+			width: 60%;
+		}
+
+		.thank-you {
+			color: $navy;
+			background: $beige;
+			text-align: center;
+			padding: 50px 27px;
+			@include font-size(1.7);
+			@include box-sizing(border-box);
+			@include breakpoint(tablet) { padding: 100px 75px; }
+			h2 {
+				font-family: $header;
+				@include font-size(3.4);
+				margin: 0 0 50px;
+			}
+			p { font-family: $body; }
+		}
+
+		#form_contact-form {
+			@include breakpoint(ten) { max-width: 500px; }
+			label {
+				@include font-size(1.7);
+				color: $khaki;
+				font-family: $body;
+				@include breakpoint(ten) {
+					position: absolute;
+					margin:0 !important;
+					padding: 0 0 6px;
+				}
+			}
+			input[type="text"], input[type="email"], input[type="tel"], textarea {
+				@include appearance(none);
+				@include border-radius(0);
+				@include box-shadow(none);
+				border: 0;
+				border-bottom: 1px solid $khaki;
+				font-family: $body;
+			}
+			input[type="text"], input[type="email"], input[type="tel"] {
+				padding: 6px 10px;
+				min-width: 100%;
+				@include breakpoint(ten) { padding: 6px 10px 6px 125px; }
+			}
+
+			#frm_field_5_container {
+				label { position: relative; }
+				textarea {
+					padding: 10px;
+					background: rgba($beige,.5);
+				}
+			}
+			
+			.flex-wrap {
+				@include breakpoint(tablet) {
+					@include display-flex;
+				}
+				// Fake Checkbox
+				#frm_field_8_container {
+					@include display-flex;
+					@include flex-direction(row-reverse);
+					@include align-items(center);
+					@include justify-content(flex-end);
+					#field_z5qss_label {
+						@include font-size(1.7);
+						color: $khaki;
+						font-family: $body;
+						margin: 0;
+					}
+					#faux-box {
+						position: relative;
+						border: 1px solid $khaki;
+						@include box-shadow(none);
+						height: 20px;
+						width: 20px;
+						padding: 0;
+						display: inline-block;
+						margin-right: 10px !important;
+						&:hover { cursor: pointer; }
+						&.active { background: url('../images/checkmark.png') no-repeat center 4px transparent; }
+					}
+					// Hide Real Box
+					#frm_checkbox_8-0 { display:none; }
+				}
+
+				// Submit
+				.frm_submit {
+					text-align: center;
+					@include breakpoint(tablet) { margin-left: auto; }
+					.frm_button_submit {
+						@include appearance(none);
+						@include border-radius(0);
+						@include box-shadow(none);
+						@extend .ease;
+						border: none;
+						background: url('../images/submit.png') no-repeat left $beige;
+						padding: 6px 33px 6px 74px;
+						height: 41px;
+						font-family: $body;
+						&:hover { background: url('../images/submit.png') no-repeat left $peach; }
+					}
+				}
+			}
+		}
+	}
+}

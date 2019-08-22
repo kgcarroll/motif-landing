@@ -1,0 +1,137 @@
+img {
+	display: block;
+}
+
+a {
+	@extend .ease;
+	text-decoration: none;
+}
+
+#header {
+	display: none;
+	@include breakpoint(ten) {
+		position: absolute;
+		width: 100%;
+		z-index: 2;
+		right: 0;
+		left: 0;
+		@include display-flex;
+		border-bottom: 1px solid $khaki;
+	}
+	.header-inner {
+		width: 100%;
+		padding: 0 48px;
+		height: 90px;
+		@include box-sizing(border-box);
+		@include display-flex;
+		@include align-items(center);
+		#logo-container {
+			width: 40%;
+			@include breakpoint(ten) { @include display-flex; }
+			#logo {
+				span {
+					@extend .ease;
+					color: $black;
+					&:hover { color: $khaki; }
+				}
+			}
+			.leasing {
+				margin: 0 45px 0 auto;
+				text-transform: uppercase;
+				color: $khaki;
+				font-weight: $bold;
+				letter-spacing: 2px;
+			}
+		}
+		#navigation-container {
+			display: flex;
+			margin: 0 0 0 auto;
+			.skip {			
+				color: $khaki;
+				margin: 0 34px 0 0;
+			}
+			#navigation {
+				ul {
+					@include breakpoint(ten) { @include display-flex; }
+					li {
+						text-transform: uppercase;
+						a {
+							color: $khaki;
+							font-weight: $bold;
+							letter-spacing: 2px;
+							&:hover { color: $peach; }
+						}
+						&:first-of-type { margin-right: 21px; }
+					}
+				}
+			}
+		}
+	}
+}
+
+.subfooter {
+	@include box-sizing(border-box);
+	padding: 147px 0 25px;
+	text-align: center;
+	a {
+		display: inline-block;
+		margin: 0 0 55px;
+		color: $black;
+		@extend .ease;
+		.icon-motif-logo { @include font-size(9.9); }
+		&:hover {
+			cursor: pointer;
+			color: $khaki;
+		}
+	}
+	.address {
+		a {
+			color: $black;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			&:hover { color: $khaki; }
+			span {
+				display: block;
+				&.break { display: none; }
+				@include breakpoint(ten) {
+					display: inline-block;					
+					&.break { display: inline-block; padding: 0 7px 0 0; }
+				}
+			}
+		}
+	}
+}
+
+#footer {
+	background: $black;
+	.footer-inner {
+		height: 70px;
+		position: relative;
+		@include display-flex;
+		@include justify-content(center);
+		@include align-items(center);
+		.management-logo {
+			display: none;
+			position: absolute;
+			left: 27px;
+			@include breakpoint(ten) { left: 138px; }
+		}
+		.social-media {
+			.icons {
+				a.icon {
+					color: $white;
+					padding: 0 8px;
+					@include font-size(1.8);
+					&:hover { color: $khaki; }
+				}
+			}
+		}
+		.eho {
+			position: absolute;
+			right: 27px;
+			color: $white;
+			@include breakpoint(ten) { right: 48px; }
+			.icon-handi { padding: 0 4px 0 0; }
+		}
+	}
+}
